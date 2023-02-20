@@ -1,0 +1,46 @@
+service wallet {
+  rpc Create(CreateWalletRequest) returns (MessageResponse) {}
+  rpc Charge(ChangeWalletBalance) returns (MessageResponse) {}
+  rpc Refund(ChangeWalletBalance) returns (MessageResponse) {}
+  rpc InitialTransfer(TransferRequest) returns (InitialTransferResponse) {}
+  rpc ConfirmTransfer(DoTransfer) returns (MessageResponse) {}
+  rpc CancelTransfer(DoTransfer) returns (MessageResponse) {}
+}
+
+message DoTransfer{
+  required string user_id = 1;
+  required string transfer_id = 2;
+}
+
+message CreateWalletRequest {
+  required string user_id = 1;
+  required int64 initial_balance = 2;
+  required string firstname = 3;
+  required string lastname = 4;
+}
+
+message ChangeWalletBalance{
+  required string user_id = 1;
+  required string wallet_id = 2;
+  required uint64 charge_amount = 3;
+}
+
+message TransferRequest{
+  required string user_id = 1;
+  required string sender_wallet_id = 2;
+  required string receiver_wallet_id = 3;
+  required uint64 amount = 4;
+}
+
+message MessageResponse{
+  required string message = 1;
+  optional string wallet_id = 2;
+}
+
+message InitialTransferResponse{
+  required string message = 1;
+  required string transfer_id = 2;
+  required string receiver_firstname = 3;
+  required string receiver_lastname = 4;
+  required int64 expire_time = 5;
+}
