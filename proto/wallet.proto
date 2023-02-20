@@ -1,3 +1,5 @@
+syntax = "proto3";
+
 service wallet {
   rpc Create(CreateWalletRequest) returns (MessageResponse) {}
   rpc Charge(ChangeWalletBalance) returns (MessageResponse) {}
@@ -8,39 +10,39 @@ service wallet {
 }
 
 message DoTransfer{
-  required string user_id = 1;
-  required string transfer_id = 2;
+  string user_id = 1;
+  string transfer_id = 2;
 }
 
 message CreateWalletRequest {
-  required string user_id = 1;
-  required int64 initial_balance = 2;
-  required string firstname = 3;
-  required string lastname = 4;
+  string user_id = 1;
+  int64 initial_balance = 2;
+  string firstname = 3;
+  string lastname = 4;
 }
 
 message ChangeWalletBalance{
-  required string user_id = 1;
-  required string wallet_id = 2;
-  required uint64 charge_amount = 3;
+  string user_id = 1;
+  string wallet_id = 2;
+  uint64 charge_amount = 3;
 }
 
 message TransferRequest{
-  required string user_id = 1;
-  required string sender_wallet_id = 2;
-  required string receiver_wallet_id = 3;
-  required uint64 amount = 4;
+  string user_id = 1;
+  string sender_wallet_id = 2;
+  string receiver_wallet_id = 3;
+  uint64 amount = 4;
 }
 
 message MessageResponse{
-  required string message = 1;
-  optional string wallet_id = 2;
+  string message = 1;
+  string wallet_id = 2;
 }
 
 message InitialTransferResponse{
-  required string message = 1;
-  required string transfer_id = 2;
-  required string receiver_firstname = 3;
-  required string receiver_lastname = 4;
-  required int64 expire_time = 5;
+  string message = 1;
+  string transfer_id = 2;
+  string receiver_firstname = 3;
+  string receiver_lastname = 4;
+  int64 expire_time = 5;
 }
