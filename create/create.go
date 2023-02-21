@@ -7,6 +7,7 @@ import (
 )
 
 type Server struct {
+	walletPB.UnimplementedWalletServer
 }
 
 func (s *Server) Create(ctx context.Context, in *walletPB.CreateWalletRequest) (*walletPB.MessageResponse, error) {
