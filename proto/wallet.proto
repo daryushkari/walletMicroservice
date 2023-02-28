@@ -6,11 +6,11 @@ option go_package = "./walletPB;walletPB";
 
 service wallet {
   rpc Create(CreateWalletRequest) returns (MessageResponse) {}
-//  rpc Charge(ChangeWalletBalance) returns (MessageResponse) {}
-//  rpc Refund(ChangeWalletBalance) returns (MessageResponse) {}
-//  rpc InitialTransfer(TransferRequest) returns (InitialTransferResponse) {}
-//  rpc ConfirmTransfer(DoTransfer) returns (MessageResponse) {}
-//  rpc CancelTransfer(DoTransfer) returns (MessageResponse) {}
+  rpc Charge(ChangeWalletBalance) returns (MessageResponse) {}
+  rpc Refund(ChangeWalletBalance) returns (MessageResponse) {}
+  rpc InitialTransfer(TransferRequest) returns (InitialTransferResponse) {}
+  rpc ConfirmTransfer(DoTransfer) returns (MessageResponse) {}
+  rpc CancelTransfer(DoTransfer) returns (MessageResponse) {}
 }
 
 message DoTransfer{
