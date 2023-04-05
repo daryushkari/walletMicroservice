@@ -41,6 +41,7 @@ message TransferRequest{
 message MessageResponse{
   string message = 1;
   string wallet_id = 2;
+  int32 code = 3;
 }
 
 message InitialTransferResponse{
