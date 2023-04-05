@@ -4,7 +4,7 @@ import (
 	"log"
 	"net"
 	walletPB "walletMicroservice/api/pb/proto"
-	"walletMicroservice/create"
+	"walletMicroservice/delivery/grpc"
 
 	"google.golang.org/grpc"
 )
@@ -15,7 +15,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	s := create.Server{}
+	s := delivery.Server{}
 
 	grpcServer := grpc.NewServer()
 
